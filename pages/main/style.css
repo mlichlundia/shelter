@@ -1,0 +1,137 @@
+@font-face {
+	font-family: "Arial";
+	src: url("fonts/arial.woff") format("woff"),
+		url("fonts/arial.ttf") format("ttf");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "Georgia";
+	src: url("fonts/georgia.woff") format("woff"),
+		url("fonts/georgia.ttf") format("ttf");
+	font-weight: 400;
+}
+
+html {
+	--light-xl: #ffffff;
+	--light-l: #f6f6f6;
+	--light-s: #fafafa;
+	--dark-s: #cdcdcd;
+	--dark-m: #b2b2b2;
+	--dark-l: #545454;
+	--dark-xl: #4c4c4c;
+	--dark-2xl: #444444;
+	--dark-3xl: #292929;
+	--primary: #f1cdb3;
+	--primary-light: #fddcc4;
+
+	font-size: 1.25vw;
+	font-family: "Georgia", "Times New Roman", Times, serif;
+	font-weight: 400;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	color: var(--dark-l);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	line-height: 1.5;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+a,
+button {
+	cursor: pointer;
+}
+
+p {
+	font-family: "Arial", Helvetica, sans-serif;
+}
+
+h1 {
+	color: var(--primary);
+	font-size: 2rem;
+	line-height: 110%;
+	letter-spacing: 0.12rem;
+	text-transform: capitalize;
+}
+
+h2 {
+	font-size: 2.75rem;
+	line-height: 130%;
+}
+
+h3 {
+	font-size: 2.1875rem;
+	line-height: 130%;
+	letter-spacing: 1.13125rem;
+}
+
+h4 {
+	font-size: 1.25rem;
+	line-height: 115%;
+	letter-spacing: 0.075rem;
+}
+
+h5 {
+	font-size: 0.9375rem;
+	line-height: 110%;
+	letter-spacing: 0.5625rem;
+}
+
+p .paragraph-l {
+	font-size: 0.9375rem;
+	line-height: 160%;
+	color: var(--dark-xl);
+}
+
+p .paragraph-s {
+	font-size: 0.75rem;
+	line-height: 150%;
+	font-style: italic;
+	color: var(--dark-m);
+}
+
+button {
+	font: inherit;
+	outline: none;
+	font-size: 1.0625rem;
+	line-height: 130%;
+	letter-spacing: 0.06375rem;
+	padding: 0.9375rem 2.8125rem;
+	border: none;
+	border-radius: 6.25rem;
+	color: var(--dark-3xl);
+	background: var(--primary);
+	transition: 0.5s;
+}
+
+button:hover {
+	background: var(--primary-light);
+}
