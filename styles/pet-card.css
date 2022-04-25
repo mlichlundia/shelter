@@ -1,4 +1,5 @@
 .slider__card {
+	text-align: center;
 	min-width: calc(33.33333% - 90px);
 	padding: 0 0 30px;
 	margin: 0 45px;
