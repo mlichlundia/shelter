@@ -1,0 +1,21 @@
+.pets h3 {
+	text-align: center;
+	margin: 0 0 60px;
+}
+
+.slider {
+	position: relative;
+	margin: 0 0 60px;
+}
+
+.slider__container {
+	margin: 0 60px;
+	overflow: hidden;
+	position: relative;
+}
+
+.slider__cards {
+	display: flex;
+	flex-wrap: wrap;
+	transition: 0.5s ease-in-out;
+}

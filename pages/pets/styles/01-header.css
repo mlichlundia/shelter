@@ -1,0 +1,21 @@
+header {
+	position: static;
+	transform: translate(0);
+	padding: 30px 40px;
+}
+
+h1,
+header a.paragraph-l {
+	color: var(--dark-l);
+}
+
+header a.active,
+header p {
+	color: var(--dark-3xl);
+}
+
+@media screen and (max-width: 1279px) {
+	header {
+		padding: 30px 30px;
+	}
+}
