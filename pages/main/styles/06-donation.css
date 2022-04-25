@@ -1,0 +1,99 @@
+.donation {
+	background: var(--light-l);
+}
+
+.donation .container {
+	padding: 80px 142px 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.donation .container > img {
+	width: 505px;
+	height: auto;
+}
+
+.donation__content {
+	margin: 0 0 0 30px;
+}
+
+.donation h5 {
+	margin: 20px 0;
+}
+
+.donation__card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 15px;
+	margin: 0 0 20px;
+	border-radius: 9px;
+	background: var(--primary);
+	width: fit-content;
+}
+
+.donation__card:hover {
+	background: var(--primary-light);
+}
+
+.donation__card h4 {
+	margin: 0 0 0 15px;
+}
+
+@media screen and (max-width: 1279px) {
+	.donation .container {
+		padding: 80px 102px 100px;
+		flex-direction: column-reverse;
+	}
+
+	.donation__content {
+		margin: 0 62px 60px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.donation .container {
+		padding: 80px 0 100px;
+	}
+
+	.donation__content {
+		margin: 0 0 36px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.donation .container {
+		padding: 42px 0;
+	}
+
+	.donation .container > img {
+		width: 260px;
+	}
+
+	.donation__content {
+		margin: 0 0 42px;
+		text-align: center;
+	}
+
+	.donation__content h4 {
+		font-size: 15px;
+		line-height: 110%;
+		letter-spacing: 0.9px;
+	}
+
+	.donation__content h5 {
+		letter-spacing: 0;
+		margin: 24px 0;
+	}
+
+	.donation__card {
+		padding: 10px 15px;
+		margin: 0 auto 20px;
+	}
+
+	.donation p {
+		text-align: justify;
+		margin: 0 10px 0;
+	}
+}

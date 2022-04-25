@@ -25,7 +25,6 @@ html {
 	--primary: #f1cdb3;
 	--primary-light: #fddcc4;
 
-	font-size: 1.25vw;
 	font-family: "Georgia", "Times New Roman", Times, serif;
 	font-weight: 400;
 }
@@ -53,7 +52,8 @@ li {
 body {
 	min-height: 100vh;
 	scroll-behavior: smooth;
-	line-height: 1.5;
+	overflow-x: hidden;
+	position: relative;
 }
 
 ul {
@@ -68,6 +68,19 @@ img {
 a,
 button {
 	cursor: pointer;
+	transition: 0.5s;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: 400;
 }
 
 p {
@@ -76,43 +89,43 @@ p {
 
 h1 {
 	color: var(--primary);
-	font-size: 2rem;
+	font-size: 32px;
 	line-height: 110%;
-	letter-spacing: 0.12rem;
+	letter-spacing: 1.92px;
 	text-transform: capitalize;
 }
 
 h2 {
-	font-size: 2.75rem;
+	font-size: 44px;
 	line-height: 130%;
 }
 
 h3 {
-	font-size: 2.1875rem;
-	line-height: 130%;
-	letter-spacing: 1.13125rem;
+	font-size: 35px;
+	line-height: 129%;
+	letter-spacing: 2.1px;
 }
 
 h4 {
-	font-size: 1.25rem;
-	line-height: 115%;
-	letter-spacing: 0.075rem;
+	font-size: 20px;
+	line-height: 114%;
+	letter-spacing: 1.2px;
 }
 
 h5 {
-	font-size: 0.9375rem;
+	font-size: 15px;
 	line-height: 110%;
-	letter-spacing: 0.5625rem;
+	letter-spacing: 0.9px;
 }
 
-p .paragraph-l {
-	font-size: 0.9375rem;
+.paragraph-l {
+	font-size: 15px;
 	line-height: 160%;
 	color: var(--dark-xl);
 }
 
-p .paragraph-s {
-	font-size: 0.75rem;
+.paragraph-s {
+	font-size: 12px;
 	line-height: 150%;
 	font-style: italic;
 	color: var(--dark-m);
@@ -121,17 +134,73 @@ p .paragraph-s {
 button {
 	font: inherit;
 	outline: none;
-	font-size: 1.0625rem;
+	font-size: 17px;
 	line-height: 130%;
-	letter-spacing: 0.06375rem;
-	padding: 0.9375rem 2.8125rem;
-	border: none;
-	border-radius: 6.25rem;
+	letter-spacing: 1.02px;
+	padding: 13px 43px;
+	border: 2px solid var(--primary);
+	border-radius: 100px;
 	color: var(--dark-3xl);
 	background: var(--primary);
-	transition: 0.5s;
 }
 
 button:hover {
+	border: 2px solid var(--primary-light);
 	background: var(--primary-light);
+}
+
+.container {
+	max-width: 1200px;
+}
+
+.content__container {
+	padding: 80px 0 100px;
+}
+
+header,
+main > section,
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.grain {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../../../assets/images/noise_transparent.png);
+	background-size: 60px 60px;
+	background-repeat: repeat;
+}
+
+@media screen and (max-width: 1279px) {
+	.container {
+		max-width: 708px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.container {
+		max-width: 460px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.container {
+		max-width: 300px;
+	}
+
+	.content__container {
+		padding: 42px 0;
+	}
+
+	h2,
+	h3 {
+		font-size: 25px;
+		line-height: 129%;
+		letter-spacing: 1.5px;
+	}
 }
