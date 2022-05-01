@@ -22,8 +22,6 @@ function onresize() {
 }
 
 function swipe(count) {
-	console.log(count)
-
 	if (window.outerWidth > 1280) {
 		sliderCardsContainer.style.transform = `translate(${
 			(-count * sliderWidth) / 3
