@@ -14,8 +14,15 @@ header .container {
 	width: 100%;
 }
 
-header p,
+header p {
+	color: var(--light-xl);
+}
+
 header a.paragraph-l {
+	color: var(--dark-s);
+}
+
+header a.paragraph-l:hover {
 	color: var(--light-s);
 }
 
@@ -38,15 +45,16 @@ header li:last-child {
 	margin: 0 0 0 17.5px;
 }
 
-header a {
+header nav a {
 	font-family: "Arial", Helvetica, sans-serif;
 	line-height: 160%;
 	position: relative;
 	padding: 0 0 3px;
+	border-bottom: 3px solid rgba(253, 220, 196, 0);
 }
 
-header a.active {
-	padding: 0 0 3px;
+header nav a.active {
+	color: var(--light-s);
 	border-bottom: 3px solid var(--primary);
 }
 

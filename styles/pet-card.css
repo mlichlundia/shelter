@@ -5,25 +5,39 @@
 	margin: 0 45px;
 	background: var(--light-s);
 	border-radius: 9px;
+	transition: 0.25s;
 }
 
 .slider__card img {
 	width: 100%;
 	height: auto;
 	margin: 0 auto;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
 }
 
 .friends h4 {
 	margin: 30px 0;
 }
 
-.slider__cards button {
+.slider__card-button {
 	border: 2px solid var(--primary);
 	background: none;
+	margin: auto;
 }
 
-.slider__cards button:hover {
+.slider__card-button:hover {
 	border: 2px solid var(--primary-light);
+	background: var(--primary-light);
+}
+
+.hovered-card {
+	cursor: pointer;
+	background: var(--light-xl);
+}
+
+.hovered-button {
+	cursor: pointer;
 	background: var(--primary-light);
 }
 

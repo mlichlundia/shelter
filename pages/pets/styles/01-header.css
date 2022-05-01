@@ -9,9 +9,22 @@ header a.paragraph-l {
 	color: var(--dark-l);
 }
 
-header a.active,
+header a.paragraph-l:hover {
+	color: var(--dark-3xl);
+}
+
 header p {
 	color: var(--dark-3xl);
+}
+
+header nav a.active {
+	color: var(--dark-l);
+	border-bottom: 3px solid var(--primary);
+}
+
+header nav a.active:hover {
+	color: var(--dark-l);
+	border-bottom: 3px solid var(--primary);
 }
 
 @media screen and (max-width: 1279px) {
