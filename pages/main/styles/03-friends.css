@@ -90,6 +90,11 @@
 }
 
 .friends .content__container > a {
+	border: 2px solid var(--primary);
+	background: var(--primary);
+}
+
+.friends .content__container > a:hover {
 	border: 2px solid var(--primary-light);
 	background: var(--primary-light);
 }
