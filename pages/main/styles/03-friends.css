@@ -59,20 +59,6 @@
 	border: 2px solid var(--primary-light);
 }
 
-.slider__arrow:disabled {
-	border: 2px solid var(--dark-s);
-}
-
-.slider__arrow:disabled path {
-	fill: var(--dark-s);
-}
-
-.slider__arrow:disabled:hover {
-	border: 2px solid var(--dark-s);
-	background: none;
-	cursor: auto;
-}
-
 .friends .content__container > a {
 	font: inherit;
 	outline: none;

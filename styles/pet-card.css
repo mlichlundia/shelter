@@ -31,12 +31,13 @@
 	background: var(--primary-light);
 }
 
-.hovered-card {
+.slider__card:hover {
 	cursor: pointer;
+	box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 	background: var(--light-xl);
 }
 
-.hovered-button {
+.slider__card:hover > .slider__card-button {
 	cursor: pointer;
 	background: var(--primary-light);
 }

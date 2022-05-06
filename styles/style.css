@@ -34,6 +34,7 @@ html {
 *::after {
 	box-sizing: border-box;
 	color: var(--dark-l);
+	scroll-behavior: smooth;
 }
 
 body,
