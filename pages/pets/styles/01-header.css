@@ -1,7 +1,10 @@
 header {
-	position: static;
+	position: sticky;
+	top: 0;
+	left: 0;
 	transform: translate(0);
 	padding: 30px 40px;
+	background: var(--light-xl);
 }
 
 h1,

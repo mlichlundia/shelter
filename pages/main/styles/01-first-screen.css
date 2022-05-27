@@ -51,6 +51,10 @@
 		float: right;
 		align-self: flex-end;
 	}
+
+	.first-screen__content a {
+		align-self: center;
+	}
 }
 
 @media screen and (max-width: 767px) {
