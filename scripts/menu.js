@@ -1,9 +1,50 @@
 const menu = document.querySelector("header nav")
 const menuLinks = document.querySelectorAll("header nav a")
 
+const burger = document.querySelector(".menu__burger")
+const body = document.querySelector("body")
+const menuList = document.querySelector("header nav ul")
+
+const logoTitle = document.querySelector("header .container a h1")
+const logoParagraph = document.querySelector("header .container a p")
+
 menu.addEventListener("click", e => {
 	const link = e.target.closest("a")
+	if (!link) {
+		return
+	}
 	menuLinks.forEach(item => item.classList.remove("active"))
 	link.classList.toggle("active")
-	console.log(e.target.closest("a"))
+	toggleBurger()
+	logoUnset()
 })
+
+burger.addEventListener("click", toggleBurger)
+
+window.addEventListener("resize", onResize)
+
+function toggleBurger() {
+	burger.classList.toggle("menu__burger_active")
+	burger.classList.toggle("menu__burger_light")
+	body.classList.toggle("scroll-prevent")
+	menu.classList.toggle("nav_active")
+	changeLogoColor()
+}
+
+function onResize() {
+	burger.classList.remove("menu__burger_active")
+	burger.classList.remove("menu__burger_light")
+	body.classList.remove("scroll-prevent")
+	menu.classList.remove("nav_active")
+	logoUnset()
+}
+
+function changeLogoColor() {
+	logoTitle.classList.toggle("logo__title_light")
+	logoParagraph.classList.toggle("logo__paragraph_light")
+}
+
+function logoUnset() {
+	logoTitle.classList.remove("logo__title_light")
+	logoParagraph.classList.remove("logo__paragraph_light")
+}

@@ -58,6 +58,42 @@ header nav a.active {
 	border-bottom: 3px solid var(--primary);
 }
 
+.logo-container {
+	z-index: 10;
+}
+
+.menu__burger {
+	position: relative;
+	display: none;
+	padding: 0;
+	width: 50px;
+	height: 50px;
+	background: 0;
+	border: none;
+}
+
+.menu__burger::before {
+	content: "☰";
+	position: absolute;
+	top: 12px;
+	left: 16px;
+	transform: scale(2.5, 2);
+	color: var(--primary);
+}
+
+.menu__burger:hover {
+	background: 0;
+	border: none;
+}
+
+.menu__burger_active {
+	transform: rotate(90deg);
+}
+
+.scroll-prevent {
+	overflow: hidden;
+}
+
 @media screen and (max-width: 1279px) {
 	header {
 		top: 30px;
@@ -67,5 +103,38 @@ header nav a.active {
 @media screen and (max-width: 767px) {
 	header nav {
 		display: none;
+	}
+
+	header .container {
+		padding: 0 33px 0 0;
+	}
+
+	.nav_active {
+		display: block;
+		position: fixed;
+		top: -30px;
+		left: 0;
+	}
+
+	.nav__list_active {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		background: var(--dark-3xl);
+	}
+
+	.nav__list_active li {
+		padding: 20px 0;
+	}
+
+	.nav__list_active a.paragraph-l {
+		font-size: 32px;
+	}
+
+	.menu__burger {
+		display: block;
 	}
 }
