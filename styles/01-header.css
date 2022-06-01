@@ -102,21 +102,18 @@ header nav a.active {
 
 @media screen and (max-width: 767px) {
 	header nav {
-		display: none;
+		position: fixed;
+		top: -30px;
+		left: 0;
+		transition: 0.5s;
+		overflow: hidden;
 	}
 
 	header .container {
 		padding: 0 33px 0 0;
 	}
 
-	.nav_active {
-		display: block;
-		position: fixed;
-		top: -30px;
-		left: 0;
-	}
-
-	.nav__list_active {
+	.nav__list {
 		width: 100vw;
 		height: 100vh;
 		display: flex;
@@ -124,13 +121,19 @@ header nav a.active {
 		justify-content: center;
 		flex-direction: column;
 		background: var(--dark-3xl);
+		transform: translate(100%);
+		transition: 0.5s;
 	}
 
-	.nav__list_active li {
+	.nav_active {
+		transform: translate(0);
+	}
+
+	.nav__list li {
 		padding: 20px 0;
 	}
 
-	.nav__list_active a.paragraph-l {
+	.nav__list a.paragraph-l {
 		font-size: 32px;
 	}
 

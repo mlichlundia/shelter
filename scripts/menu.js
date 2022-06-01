@@ -11,6 +11,7 @@ const logoParagraph = document.querySelector("header .container a p")
 menu.addEventListener("click", e => {
 	const link = e.target.closest("a")
 	if (!link) {
+		toggleBurger()
 		return
 	}
 	menuLinks.forEach(item => item.classList.remove("active"))
@@ -27,7 +28,7 @@ function toggleBurger() {
 	burger.classList.toggle("menu__burger_active")
 	burger.classList.toggle("menu__burger_light")
 	body.classList.toggle("scroll-prevent")
-	menu.classList.toggle("nav_active")
+	menuList.classList.toggle("nav_active")
 	changeLogoColor()
 }
 
@@ -35,7 +36,7 @@ function onResize() {
 	burger.classList.remove("menu__burger_active")
 	burger.classList.remove("menu__burger_light")
 	body.classList.remove("scroll-prevent")
-	menu.classList.remove("nav_active")
+	menuList.classList.remove("nav_active")
 	logoUnset()
 }
 
