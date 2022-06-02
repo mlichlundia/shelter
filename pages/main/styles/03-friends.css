@@ -15,6 +15,7 @@
 }
 
 .slider__cards {
+	width: 1080px;
 	display: flex;
 	transition: 0.5s ease-in-out;
 }
@@ -90,6 +91,10 @@
 		margin: 0 44px;
 	}
 
+	.slider__cards {
+		width: 620px;
+	}
+
 	.slider__arrows {
 		transform: translate(0, -50%);
 	}
@@ -105,6 +110,10 @@
 		margin: 0 0 42px;
 	}
 
+	.slider__cards {
+		width: 460px;
+	}
+
 	.slider__arrows {
 		position: relative;
 		width: calc(100% - 116px);
@@ -115,5 +124,11 @@
 	.slider__container {
 		position: relative;
 		margin: 0 0 20px;
+	}
+}
+
+@media screen and (max-width: 482px) {
+	.slider__cards {
+		width: 300px;
 	}
 }
