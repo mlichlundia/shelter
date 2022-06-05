@@ -1,12 +1,14 @@
 const pets = []
-const slider = document.querySelector(".slider__cards")
+const prev = document.querySelector(".slider__cards_prev")
+const main = document.querySelector(".slider__cards_main")
+const next = document.querySelector(".slider__cards_next")
 
 function getData() {
 	fetch("/data.json")
 		.then(res => res.json())
 		.then(data => pets.push(...data))
 		.then(() => addPopUps())
-		.then(() => slider.append(createSlider()))
+		.then(() => createSlider())
 }
 getData()
 
@@ -19,12 +21,15 @@ function addPopUps() {
 }
 
 function createSlider() {
-	const fragment = new DocumentFragment()
-	for (let pet of pets) {
-		fragment.append(new Pet(pet).createElement())
-	}
-
-	return fragment
+	pets.forEach((pet, idx) => {
+		if (idx < 3) {
+			prev.append(new Pet(pet).createElement())
+		} else if (idx < 7 && idx > 3) {
+			main.append(new Pet(pet).createElement())
+		} else {
+			next.append(new Pet(pet).createElement())
+		}
+	})
 }
 
 class Pet {
@@ -63,17 +68,7 @@ class Pet {
 		card.append(button)
 		card.append(this.popUp)
 
-		card.addEventListener("click", this.showInfo.bind(this))
-
 		return card
-	}
-
-	showInfo() {
-		const body = document.querySelector("body")
-		const popUp = document.querySelector(`section[data-name="${this.name}"]`)
-		console.log(popUp)
-		body.classList.add("scroll-prevent")
-		popUp.classList.add("open")
 	}
 }
 
@@ -151,4 +146,14 @@ class PopUp {
 		body.classList.remove("scroll-prevent")
 		this.classList.remove("open")
 	}
+}
+
+const slider = document.querySelector(".slider__container")
+slider.addEventListener("click", e => openPopUp(e))
+
+function openPopUp(e) {
+	const name = e.target.closest(".slider__card").querySelector("h4").innerText
+	const popUp = document.querySelector(`section[data-name="${name}"]`)
+	body.classList.add("scroll-prevent")
+	popUp.classList.add("open")
 }

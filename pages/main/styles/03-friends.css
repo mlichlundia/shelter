@@ -15,9 +15,17 @@
 }
 
 .slider__cards {
-	width: 1080px;
+	position: relative;
+	left: -1080px;
 	display: flex;
-	transition: 0.5s ease-in-out;
+}
+
+.slider__cards_prev,
+.slider__cards_main,
+.slider__cards_next {
+	min-width: 1080px;
+	display: flex;
+	/* transition: 0.5s ease-in-out; */
 }
 
 .friends h3 {
@@ -91,7 +99,9 @@
 		margin: 0 44px;
 	}
 
-	.slider__cards {
+	.slider__cards_prev,
+	.slider__cards_main,
+	.slider__cards_next {
 		width: 620px;
 	}
 
@@ -110,7 +120,9 @@
 		margin: 0 0 42px;
 	}
 
-	.slider__cards {
+	.slider__cards_prev,
+	.slider__cards_main,
+	.slider__cards_next {
 		width: 460px;
 	}
 
@@ -128,7 +140,47 @@
 }
 
 @media screen and (max-width: 482px) {
-	.slider__cards {
+	.slider__cards_prev,
+	.slider__cards_main,
+	.slider__cards_next {
 		width: 300px;
 	}
+}
+/* 
+.transition-right {
+	transition: 0.5s;
+	transform: translate(1080px);
+}
+
+.transition-left {
+	transition: 0.5s;
+	transform: translate(-1080px);
+} */
+
+@keyframes move-right {
+	from {
+		left: -1080px;
+	}
+	to {
+		left: -2160px;
+	}
+}
+
+.transition-next {
+	animation-name: move-right;
+	animation-duration: 0.5s;
+}
+
+@keyframes move-left {
+	from {
+		left: -1080px;
+	}
+	to {
+		left: 0px;
+	}
+}
+
+.transition-prev {
+	animation-name: move-left;
+	animation-duration: 0.5s;
 }
