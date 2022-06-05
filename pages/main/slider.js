@@ -38,15 +38,16 @@ sliderWrapper.addEventListener("animationend", e => animationHandler(e))
 function animationHandler(e) {
 	let current
 
-	if (e.animationName === "move-right") {
-		sliderWrapper.classList.remove("transition-next")
+	if (e.animationName.includes("move-right")) {
 		current = nextCards
 		mainCards.innerHTML = current.innerHTML
 	} else {
-		sliderWrapper.classList.remove("transition-prev")
 		current = prevCards
 		mainCards.innerHTML = current.innerHTML
 	}
+
+	sliderWrapper.classList.remove("transition-prev")
+	sliderWrapper.classList.remove("transition-next")
 
 	current.innerHTML = ""
 
@@ -65,9 +66,20 @@ function animationHandler(e) {
 function generatedCards() {
 	const cards = []
 	const nums = new Set()
+	const width = window.innerWidth
 
-	while (nums.size < 3) {
-		nums.add(getRandom(0, sliderCards.length - 1))
+	if (width > 1279) {
+		while (nums.size < 3) {
+			nums.add(getRandom(0, sliderCards.length - 1))
+		}
+	} else if (width > 767 && width < 1280) {
+		while (nums.size < 2) {
+			nums.add(getRandom(0, sliderCards.length - 1))
+		}
+	} else {
+		while (nums.size < 1) {
+			nums.add(getRandom(0, sliderCards.length - 1))
+		}
 	}
 
 	nums.forEach(item => cards.push(sliderCards[item]))

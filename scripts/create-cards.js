@@ -21,13 +21,33 @@ function addPopUps() {
 }
 
 function createSlider() {
+	const width = window.innerWidth
+
 	pets.forEach((pet, idx) => {
-		if (idx < 3) {
-			prev.append(new Pet(pet).createElement())
-		} else if (idx < 7 && idx > 3) {
-			main.append(new Pet(pet).createElement())
+		if (width > 1279) {
+			if (idx < 3) {
+				prev.append(new Pet(pet).createElement())
+			} else if (idx < 7 && idx > 3) {
+				main.append(new Pet(pet).createElement())
+			} else {
+				next.append(new Pet(pet).createElement())
+			}
+		} else if (width > 767 && width < 1280) {
+			if (idx < 2) {
+				prev.append(new Pet(pet).createElement())
+			} else if (idx < 4 && idx > 1) {
+				main.append(new Pet(pet).createElement())
+			} else if (idx < 6 && idx > 3) {
+				next.append(new Pet(pet).createElement())
+			}
 		} else {
-			next.append(new Pet(pet).createElement())
+			if (idx < 1) {
+				prev.append(new Pet(pet).createElement())
+			} else if (idx < 2 && idx > 0) {
+				main.append(new Pet(pet).createElement())
+			} else if (idx < 1 && idx > 2) {
+				next.append(new Pet(pet).createElement())
+			}
 		}
 	})
 }
