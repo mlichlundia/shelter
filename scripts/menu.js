@@ -8,6 +8,8 @@ const menuList = document.querySelector("header nav ul")
 const logoTitle = document.querySelector("header .container a h1")
 const logoParagraph = document.querySelector("header .container a p")
 
+menu.style.pointerEvents = "none"
+
 menu.addEventListener("click", e => {
 	const link = e.target.closest("a")
 	if (!link) {
@@ -25,6 +27,8 @@ burger.addEventListener("click", toggleBurger)
 window.addEventListener("resize", onResize)
 
 function toggleBurger() {
+	menu.style.pointerEvents =
+		menu.style.pointerEvents === "none" ? "all" : "none"
 	burger.classList.toggle("menu__burger_active")
 	burger.classList.toggle("menu__burger_light")
 	body.classList.toggle("scroll-prevent")
@@ -49,3 +53,5 @@ function logoUnset() {
 	logoTitle.classList.remove("logo__title_light")
 	logoParagraph.classList.remove("logo__paragraph_light")
 }
+
+document.addEventListener("click", ee => console.log(ee.target))
