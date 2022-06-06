@@ -18,6 +18,7 @@
 	position: relative;
 	left: -1080px;
 	display: flex;
+	z-index: 1;
 }
 
 .slider__cards_prev,
