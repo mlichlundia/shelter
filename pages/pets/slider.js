@@ -85,7 +85,6 @@ function swipe() {
 	} else {
 		slider.style.transform = `translate( 0, ${-count * 465 * 3}px)`
 	}
-	console.log(count, pageCount)
 
 	isNextDisabled()
 	isPrevDisabled()
@@ -265,7 +264,11 @@ function shuffle(array) {
 slider.addEventListener("click", e => openPopUp(e))
 
 function openPopUp(e) {
-	const name = e.target.closest(".slider__card").querySelector("h4").innerText
+	const targetEl = e.target.closest(".slider__card")
+	if (!targetEl) {
+		return
+	}
+	const name = targetEl.querySelector("h4").innerText
 	const popUp = document.querySelector(`section[data-name="${name}"]`)
 	body.classList.add("scroll-prevent")
 	popUp.classList.add("open")
