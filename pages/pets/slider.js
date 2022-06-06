@@ -16,7 +16,7 @@ const next = document.querySelector(".slider__arrow_next")
 const pageNum = document.querySelector(".slider__page-num span")
 
 function getData() {
-	fetch("/data.json")
+	fetch("https://mlichlundia.github.io/shelter/data.json")
 		.then(res => res.json())
 		.then(data => {
 			dataPets.push(...data)

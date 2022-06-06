@@ -45,7 +45,7 @@ function createSlider() {
 				prev.append(new Pet(pet).createElement())
 			} else if (idx < 2 && idx > 0) {
 				main.append(new Pet(pet).createElement())
-			} else if (idx < 1 && idx > 2) {
+			} else if (idx < 3 && idx > 1) {
 				next.append(new Pet(pet).createElement())
 			}
 		}
