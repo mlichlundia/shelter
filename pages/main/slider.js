@@ -10,7 +10,7 @@ const sliderCards = []
 const prevSwipe = document.querySelector(".slider__arrow_prev")
 const nextSwipe = document.querySelector(".slider__arrow_next")
 
-fetch("/data.json")
+fetch("https://mlichlundia.github.io/shelter/data.json")
 	.then(res => res.json())
 	.then(data => sliderCards.push(...data))
 

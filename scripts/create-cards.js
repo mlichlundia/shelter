@@ -4,7 +4,7 @@ const main = document.querySelector(".slider__cards_main")
 const next = document.querySelector(".slider__cards_next")
 
 function getData() {
-	fetch("/data.json")
+	fetch("https://mlichlundia.github.io/shelter/data.json")
 		.then(res => res.json())
 		.then(data => pets.push(...data))
 		.then(() => addPopUps())
