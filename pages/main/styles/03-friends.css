@@ -15,8 +15,16 @@
 }
 
 .slider__cards {
+	position: relative;
+	left: -1080px;
 	display: flex;
-	transition: 0.5s ease-in-out;
+}
+
+.slider__cards_prev,
+.slider__cards_main,
+.slider__cards_next {
+	min-width: 1080px;
+	display: flex;
 }
 
 .friends h3 {
@@ -85,13 +93,116 @@
 	background: var(--primary-light);
 }
 
+@keyframes move-right-xl {
+	from {
+		left: -1080px;
+	}
+	to {
+		left: -2160px;
+	}
+}
+
+@keyframes move-left-xl {
+	from {
+		left: -1080px;
+	}
+	to {
+		left: 0px;
+	}
+}
+
+@keyframes move-right-l {
+	from {
+		left: -620px;
+	}
+	to {
+		left: -1240px;
+	}
+}
+
+@keyframes move-left-l {
+	from {
+		left: -620px;
+	}
+	to {
+		left: 0px;
+	}
+}
+
+@keyframes move-right-m {
+	from {
+		left: -460px;
+	}
+	to {
+		left: -920px;
+	}
+}
+
+@keyframes move-left-m {
+	from {
+		left: -460px;
+	}
+	to {
+		left: 0px;
+	}
+}
+
+@keyframes move-right-s {
+	from {
+		left: -300px;
+	}
+	to {
+		left: -600px;
+	}
+}
+
+@keyframes move-left-s {
+	from {
+		left: -300px;
+	}
+	to {
+		left: 0px;
+	}
+}
+
+.transition-next {
+	animation-name: move-right-xl;
+	animation-duration: 0.5s;
+}
+
+.transition-prev {
+	animation-name: move-left-xl;
+	animation-duration: 0.5s;
+}
+
 @media screen and (max-width: 1279px) {
 	.slider__container {
 		margin: 0 44px;
 	}
 
+	.slider__cards {
+		position: relative;
+		left: -620px;
+	}
+
+	.slider__cards_prev,
+	.slider__cards_main,
+	.slider__cards_next {
+		min-width: 620px;
+	}
+
 	.slider__arrows {
 		transform: translate(0, -50%);
+	}
+
+	.transition-next {
+		animation-name: move-right-l;
+		animation-duration: 0.5s;
+	}
+
+	.transition-prev {
+		animation-name: move-left-l;
+		animation-duration: 0.5s;
 	}
 }
 
@@ -100,9 +211,20 @@
 		margin: 0 0 42px;
 	}
 
+	.slider__cards {
+		position: relative;
+		left: -460px;
+	}
+
 	.slider {
 		position: relative;
 		margin: 0 0 42px;
+	}
+
+	.slider__cards_prev,
+	.slider__cards_main,
+	.slider__cards_next {
+		min-width: 460px;
 	}
 
 	.slider__arrows {
@@ -115,5 +237,38 @@
 	.slider__container {
 		position: relative;
 		margin: 0 0 20px;
+	}
+
+	.transition-next {
+		animation-name: move-right-m;
+		animation-duration: 0.5s;
+	}
+
+	.transition-prev {
+		animation-name: move-left-m;
+		animation-duration: 0.5s;
+	}
+}
+
+@media screen and (max-width: 482px) {
+	.slider__cards {
+		position: relative;
+		left: -300px;
+	}
+
+	.slider__cards_prev,
+	.slider__cards_main,
+	.slider__cards_next {
+		min-width: 300px;
+	}
+
+	.transition-next {
+		animation-name: move-right-s;
+		animation-duration: 0.5s;
+	}
+
+	.transition-prev {
+		animation-name: move-left-s;
+		animation-duration: 0.5s;
 	}
 }

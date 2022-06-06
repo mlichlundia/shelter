@@ -1,65 +1,92 @@
 const sliderContainer = document.querySelector(".slider__container")
-const sliderCardsContainer = document.querySelector(".slider__cards")
-const sliderCards = document.querySelectorAll(".slider__card")
+const sliderWrapper = document.querySelector(".slider__cards")
 
-const prev = document.querySelector(".slider__arrow_prev")
-const next = document.querySelector(".slider__arrow_next")
+const mainCards = document.querySelector(".slider__cards_main")
+const prevCards = document.querySelector(".slider__cards_prev")
+const nextCards = document.querySelector(".slider__cards_next")
 
-let sliderWidth = sliderContainer.offsetWidth
+const sliderCards = []
 
-let count = 0
+const prevSwipe = document.querySelector(".slider__arrow_prev")
+const nextSwipe = document.querySelector(".slider__arrow_next")
 
-next.addEventListener("click", showNext)
-prev.addEventListener("click", showPrev)
+fetch("/data.json")
+	.then(res => res.json())
+	.then(data => sliderCards.push(...data))
 
-window.addEventListener("resize", onresize)
+nextSwipe.addEventListener("click", showNext)
+prevSwipe.addEventListener("click", showPrev)
 
-function onresize() {
-	sliderWidth = sliderContainer.offsetWidth
-	swipe(count)
-	isNextDisabled(count)
-	isPrevDisabled(count)
-}
-
-function swipe(count) {
-	if (window.outerWidth > 1280) {
-		sliderCardsContainer.style.transform = `translate(${
-			(-count * sliderWidth) / 3
-		}px)`
-	} else if (window.outerWidth > 768) {
-		sliderCardsContainer.style.transform = `translate(${
-			(-count * sliderWidth) / 2
-		}px)`
-	} else {
-		sliderCardsContainer.style.transform = `translate(${
-			-count * sliderWidth
-		}px)`
-	}
-
-	isNextDisabled(count)
-	isPrevDisabled(count)
-}
-
-function isNextDisabled(count) {
-	if (window.outerWidth > 1280) {
-		next.disabled = count === sliderCards.length - 3 ? true : false
-	} else if (window.outerWidth > 768) {
-		next.disabled = count === sliderCards.length - 2 ? true : false
-	} else {
-		next.disabled = count === sliderCards.length - 1 ? true : false
-	}
-}
-
-function isPrevDisabled(count) {
-	prev.disabled = count === 0 ? true : false
-}
-
+//
+//
+//
+//
 function showNext() {
-	count++
-	swipe(count)
+	sliderWrapper.classList.add("transition-next")
+	nextSwipe.removeEventListener("click", showNext)
+	prevSwipe.removeEventListener("click", showPrev)
 }
 
 function showPrev() {
-	count--
-	swipe(count)
+	sliderWrapper.classList.add("transition-prev")
+	nextSwipe.removeEventListener("click", showNext)
+	prevSwipe.removeEventListener("click", showPrev)
+}
+
+sliderWrapper.addEventListener("animationend", e => animationHandler(e))
+
+function animationHandler(e) {
+	let current
+
+	if (e.animationName.includes("move-right")) {
+		current = nextCards
+		mainCards.innerHTML = current.innerHTML
+	} else {
+		current = prevCards
+		mainCards.innerHTML = current.innerHTML
+	}
+
+	sliderWrapper.classList.remove("transition-prev")
+	sliderWrapper.classList.remove("transition-next")
+
+	current.innerHTML = ""
+
+	generatedCards().forEach(item => {
+		const card = new Pet(item).createElement()
+		current.append(card)
+	})
+
+	nextSwipe.addEventListener("click", showNext)
+	prevSwipe.addEventListener("click", showPrev)
+}
+//
+//
+//
+//
+function generatedCards() {
+	const cards = []
+	const nums = new Set()
+	const width = window.innerWidth
+
+	if (width > 1279) {
+		while (nums.size < 3) {
+			nums.add(getRandom(0, sliderCards.length - 1))
+		}
+	} else if (width > 767 && width < 1280) {
+		while (nums.size < 2) {
+			nums.add(getRandom(0, sliderCards.length - 1))
+		}
+	} else {
+		while (nums.size < 1) {
+			nums.add(getRandom(0, sliderCards.length - 1))
+		}
+	}
+
+	nums.forEach(item => cards.push(sliderCards[item]))
+
+	return cards
+}
+
+function getRandom(min, max) {
+	return Math.floor(Math.random() * (max - min)) + min
 }

@@ -45,8 +45,8 @@ header nav a.active:hover {
 		padding: 30px 0;
 	}
 
-	.nav_active {
-		top: 0;
+	header nav {
+		top: 0px;
 	}
 
 	.logo__title_light {
@@ -61,7 +61,7 @@ header nav a.active:hover {
 		color: var(--primary);
 	}
 
-	.nav__list_active a.paragraph-l {
+	.nav__list a.paragraph-l {
 		color: var(--light-s);
 	}
 }

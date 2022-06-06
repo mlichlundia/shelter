@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="./styles/04-help.css" />
     <link rel="stylesheet" type="text/css" href="./styles/05-donation.css" />
     <link rel="stylesheet" type="text/css" href="../../styles/pet-card.css" />
+    <link rel="stylesheet" type="text/css" href="../../styles/03-pop-up.css" />
     <link rel="stylesheet" type="text/css" href="../../styles/02-footer.css" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="theme-color" content="#ffffff" />
@@ -27,7 +28,7 @@
                 <p>Shelter for pets in Boston</p>
             </a>
             <nav>
-                <ul class="nav__list_active">
+                <ul class="nav__list">
                     <li>
                         <a href="./index.html" class="paragraph-l active">About
                             the
@@ -98,52 +99,14 @@
                 <h3>Our friends who<br /> are looking for a house</h3>
                 <section class="slider">
                     <div class="slider__container">
-                        <ul class="slider__cards">
-                            <li class="slider__card">
-                                <img width="270" height="270"
-                                    src="../../assets/images/pets-katrine.png"
-                                    alt="pet-friend" />
-                                <h4>Katrine</h4>
-                                <button class='slider__card-button'>Learn
-                                    more</button>
-                            </li>
-                            <li class="slider__card">
-                                <img width="270" height="270"
-                                    src="../../assets/images/pets-jennifer.png"
-                                    alt="pet-friend" />
-                                <h4>Jennifer</h4>
-                                <button class='slider__card-button'>Learn
-                                    more</button>
-                            </li>
-                            <li class="slider__card">
-                                <img width="270" height="270"
-                                    src="../../assets/images/pets-woody.png"
-                                    alt="pet-friend" />
-                                <h4>Woody</h4>
-                                <button class='slider__card-button'>Learn
-                                    more</button>
-                            </li>
-                            <li class="slider__card">
-                                <img width="270" height="270"
-                                    src="../../assets/images/pets-sophia.png"
-                                    alt="pet-friend" />
-                                <h4>Sophia</h4>
-                                <button class='slider__card-button'>Learn
-                                    more</button>
-                            </li>
-                            <li class="slider__card">
-                                <img width="270" height="270"
-                                    src="../../assets/images/pets-timmy.png"
-                                    alt="pet-friend" />
-                                <h4>Timmy</h4>
-                                <button class='slider__card-button'>Learn
-                                    more</button>
-                            </li>
-                        </ul>
+                        <div class="slider__cards">
+                            <ul class="slider__cards_prev"></ul>
+                            <ul class="slider__cards_main"></ul>
+                            <ul class="slider__cards_next"></ul>
+                        </div>
                     </div>
                     <div class="slider__arrows">
-                        <button class="slider__arrow slider__arrow_prev"
-                            disabled>
+                        <button class="slider__arrow slider__arrow_prev">
                             <svg width="14" height="6" viewBox="0 0 14 6"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_56784_408)">
@@ -265,6 +228,29 @@
                 </div>
             </div>
         </section>
+
+        <section class='pop-up'>
+            <div class="pop-up__content">
+                <button class="pop-up__close">×</button>
+                <img src="../../assets/images/pets-katrine.png">
+                <div class="pop-up__info">
+                    <h3>Jennifer</h3>
+                    <h4>Dog - Labrador</h4>
+                    <h5>Jennifer is a sweet 2 months old Labrador that is
+                        patiently waiting to find a new forever home. This girl
+                        really enjoys being able to go outside to run and play,
+                        but won't hesitate to play up a storm in the house if
+                        she has all of her favorite toys.
+                    </h5>
+                    <ul>
+                        <li><b>Age:</b><span>2 months</span></li>
+                        <li><b>Age:</b><span>2 months</span></li>
+                        <li><b>Age:</b><span>2 months</span></li>
+                        <li><b>Age:</b><span>2 months</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
     <footer id="contacts">
         <div class="container">
@@ -313,9 +299,11 @@
             </div>
         </div>
     </footer>
-    <script src='./slider.js'></script>
+    <script src='../../scripts/create-cards.js'></script>
     <script src='../../scripts/menu.js'></script>
-    <script src='../../scripts/card.js'></script>
+    <script defer src='./slider.js'></script>
+    <script defer src='../../scripts/pop-up.js'></script>
+
 </body>
 
 </html>
