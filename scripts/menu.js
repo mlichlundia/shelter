@@ -17,10 +17,12 @@ if (window.innerWidth < 768) {
 function onresize() {
 	width = window.innerWidth
 	menu.style.pointerEvents = "all"
+	menu.style.background = "rgba(41, 41, 41, 0.6)"
 	body.classList.remove("scroll-prevent")
 
 	if (window.innerWidth < 768) {
 		menu.style.pointerEvents = "none"
+		menu.style.background = ""
 	}
 }
 
@@ -45,6 +47,8 @@ function toggleBurger() {
 	if (width < 768) {
 		menu.style.pointerEvents =
 			menu.style.pointerEvents === "none" ? "all" : "none"
+		menu.style.background =
+			menu.style.background === "" ? "rgba(41, 41, 41, 0.6)" : ""
 	}
 	burger.classList.toggle("menu__burger_active")
 	burger.classList.toggle("menu__burger_light")

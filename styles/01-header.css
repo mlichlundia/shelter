@@ -102,6 +102,7 @@ header nav a.active {
 
 @media screen and (max-width: 767px) {
 	header nav {
+		width: 100vw;
 		position: fixed;
 		top: -30px;
 		left: 0;
@@ -114,14 +115,15 @@ header nav a.active {
 	}
 
 	.nav__list {
-		width: 100vw;
+		margin-left: calc(100% - 320px);
+		width: 320px;
 		height: 100vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 		background: var(--dark-3xl);
-		transform: translate(100%);
+		transform: translate(320px);
 		transition: 0.5s;
 	}
 
@@ -139,5 +141,21 @@ header nav a.active {
 
 	.menu__burger {
 		display: block;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	header nav {
+		width: 100vw;
+	}
+
+	.nav__list {
+		margin: 0;
+		width: 100vw;
+		transform: translate(100%);
+	}
+
+	.nav_active {
+		transform: translate(0);
 	}
 }
