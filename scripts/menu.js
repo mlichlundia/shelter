@@ -26,17 +26,23 @@ function onresize() {
 	}
 }
 
-menu.addEventListener("click", e => {
+menuList.addEventListener("click", e => {
+	e.stopPropagation()
 	const link = e.target.closest("a")
-	if (!link) {
+	if (e.target === link) {
+		menuLinks.forEach(item => item.classList.remove("active"))
+		link.classList.toggle("active")
+
+		toggleBurger()
+		logoUnset()
+	}
+})
+
+menu.addEventListener("click", e => {
+	if (e.target === menu) {
 		toggleBurger()
 		return
 	}
-	menuLinks.forEach(item => item.classList.remove("active"))
-	link.classList.toggle("active")
-
-	toggleBurger()
-	logoUnset()
 })
 
 burger.addEventListener("click", toggleBurger)
